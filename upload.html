@@ -1,0 +1,61 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="src/css/uploadcircle.css">
+    <link rel="stylesheet" type="text/css" href="src/css/button.scss">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="src/js/uploadjs.js"></script>
+</head>
+<div class="preview img-wrapper"></div>
+<div class="file-upload-wrapper">
+    <input type="file" name="file" class="file-upload-native" accept="image/*" />
+    <input type="text" id="nameImg"  disabled placeholder="upload image" class="file-upload-text" onchange="upload(this.files[0])" />
+    <br><br>
+    <form action="/action_page.php">
+        Title:<br>
+        <input type="text" name="firstname" value="Mickey">
+        <br>
+        Description:<br>
+        <input type="text" name="lastname" value="Mouse">
+
+        ChannelID:<br>
+        <input type="text" name="ID" value="1234">
+        <br><br>
+    </form>
+</div>
+<div class="container">
+
+
+    <button id="button">Submit</button>
+
+</div>
+
+
+<script>
+    /* Drag'n drop stuff */
+    window.ondragover = function(e) {e.preventDefault()}
+    window.ondrop = function(e) {e.preventDefault(); upload(e.dataTransfer.files[0]); }
+    function upload(file) {
+        /* Is the file an image? */
+        if (!file || !file.type.match(/image.*/)) return;
+        /* It is! */
+        document.body.className = "uploading";
+        /* Lets build a FormData object*/
+        var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
+        fd.append("image", file); // Append the file
+        var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
+        xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+        xhr.onload = function() {
+            // Big win!
+            document.querySelector("#link").href = JSON.parse(xhr.responseText).data.link;
+            Console.log("This point reached")
+            Console.log(JSON.parse(xhr.responseText).data.link)
+            document.body.className = "uploaded";
+        }
+
+        xhr.setRequestHeader('Authorization', 'Client-ID 28aaa2e823b03b1'); // Get your own key http://api.imgur.com/
+
+        // Ok, I don't handle the errors. An exercise for the reader.
+        /* And now, we send the formdata */
+        xhr.send(fd);
+    }
+</script>
+
