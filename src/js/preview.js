@@ -50,7 +50,7 @@ function get_nsfw(link){
 
 
     console.log(name.value)
-    var url = "http://localhost:5000/nsfw?url=" + encodeURIComponent(link.trim());
+    var url = "http://infinite-sands-32812.herokuapp.com/nsfw?url=" + encodeURIComponent(link.trim());
     console.log(url)
     XHR.open("GET", url, true);
 
@@ -80,7 +80,7 @@ function sendData() {
     var name = document.getElementById("titleName");
     console.log(name.value)
 
-    var url = "http://localhost:5000/detect?headline=" + encodeURIComponent(name.value.trim());
+    var url = "http://infinite-sands-32812.herokuapp.com/detect?headline=" + encodeURIComponent(name.value.trim());
     console.log(url)
     XHR.open("GET", url, true);
 
