@@ -2,8 +2,19 @@
 <link rel="stylesheet" type="text/css" href="src/css/input.css">
 <script src="src/js/preview.js"></script>
 
+<div id="content">
+    <h1>
+        <span class="you">Predict</span>
+        <span class="tube">Views</span>
+    </h1>
+    <h2>
+        Determine how many views your YouTube video can get!
+    </h2>
+
+</div>
+
 <div class="file-upload">
-    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Thumbnail</button>
 
     <div class="image-upload-wrap">
         <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
@@ -21,28 +32,30 @@
 
 <div class='wrap'>
     <form>
+        <label>
+            <input type='text' id='titleName' placeholder='Title'>
+        </label>
 
-        <input type='text' id='titleName' placeholder='Title'>
-        <br>
-        <br>
-        <input type='text' id='channelID' placeholder='Channel ID'>
-        <br>
-        <br>
-        <input type='text' id='numweeks' placeholder='Number of Weeks'>
+        <label>
+            <input type='text' id='channelID' placeholder='Channel ID'>
+        </label>
+
+        <label>
+            <input type='text' id='numweeks' placeholder='Number of Weeks'>
+        </label>
     </form>
-
     <input type='submit' class = 'forgot' value='Determine ClickBait' onclick="return sendData();">
     <br>
     <h30 id = "scoreWrapper">
         ClickBait:
         <span id ="score">.</span>
-        "/100"
+        /100
     </h30>
 
     <h30 id = "scoreWrapper">
         Porniness:
         <span id ="scoreNSFW">.</span>
-        "/100"
+        /100
     </h30>
     <br>
     <h30 id = "scoreWrapper">

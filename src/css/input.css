@@ -1,5 +1,51 @@
+#content {
+    margin: 5px auto;
+    width: 960px;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: 150px;
+}
+
+.you {
+    letter-spacing: -8px;
+    text-shadow: 0 2px 0 white;
+}
+
+.tube {
+    position: relative;
+    padding: 0 15px;
+    background-image: -webkit-linear-gradient(bottom, rgb(109, 2, 2) 22%, rgb(201, 0, 0) 61%);
+    background-image: -moz-linear-gradient(bottom, rgb(109, 2, 2) 22%, rgb(201, 0, 0) 61%);
+    background-image: -o-linear-gradient(bottom, rgb(109, 2, 2) 22%, rgb(201, 0, 0) 61%);
+    background-image: -ms-linear-gradient(bottom, rgb(109, 2, 2) 22%, rgb(201, 0, 0) 61%);
+    background-image: linear-gradient(bottom, #6D0202 22%, rgb(201, 0, 0) 61%);
+    color: #fff;
+    letter-spacing: -6px;
+    text-shadow: 0 3px 0 #000;
+    border-radius: 50% / 11%;
+    box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.67);
+}
+
+.tube::before {
+    content: "Views";
+    line-height: 172px;
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    right: -5%;
+    left: -4.5%;
+    background: inherit;
+    border-radius: 5% / 50%;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Karla);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
+
 body {
-    font-family: sans-serif;
+    font-family: Karla;
     background-color: #eeeeee;
 }
 
@@ -8,6 +54,7 @@ body {
     width: 600px;
     margin: 0 auto;
     padding: 20px;
+
 }
 
 .file-upload-btn {
@@ -22,7 +69,8 @@ body {
     transition: all .2s ease;
     outline: none;
     text-transform: uppercase;
-    font-weight: 700;
+    font-size:26px;
+    font-weight: 100;
 }
 
 .file-upload-btn:hover {
@@ -55,7 +103,7 @@ body {
 
 .image-upload-wrap {
     margin-top: 20px;
-    border: 4px dashed #1FB264;
+    border: 4px dashed #bfbfbf;
     position: relative;
 }
 
@@ -100,6 +148,7 @@ body {
     transition: all .2s ease;
     outline: none;
     text-transform: uppercase;
+    font-size:26px;
     font-weight: 700;
 }
 
@@ -129,6 +178,7 @@ body {
 }
 
 input{
+    display: block;
     font-family:'Ubuntu';
     font-weight:300;
     border:0;
@@ -136,6 +186,12 @@ input{
     width:100%;
     height:36px;
     font-size:26px;
+
+}
+
+label {
+    display: block;
+    margin-bottom: 20px;
 }
 
 input:focus{
