@@ -113,8 +113,10 @@ function get_views(){
 
     var channelID = document.getElementById("channelID").value;
     var numweeks = document.getElementById("numweeks").value;
-    var score = document.getElementById("score").value;
-    var scoreNSFW = document.getElementById("scoreNSFW").value
+
+    var score = $("#score").text();
+    var scoreNSFW = $("#scoreNSFW").text();
+
 
     console.log(channelID)
     console.log(numweeks)
