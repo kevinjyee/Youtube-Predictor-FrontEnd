@@ -91,6 +91,7 @@ function sendData() {
             var json = JSON.parse(XHR.responseText);
             console.log(json.clickbaitiness);
             jQuery('#score').text("" + Math.round(json.clickbaitiness));
+            get_views()
         }
     };
     XHR.send();
@@ -99,6 +100,36 @@ function sendData() {
 
 }
 
+function get_views(){
+
+    var XHR = new XMLHttpRequest();
+
+
+    // Define what happens in case of error
+    XHR.addEventListener("error", function(event) {
+        alert('Oups! Something goes wrong.');
+    });
+
+
+    var channelID = document.getElementById("channelID");
+    var numweeks = document.getElementById("numweeks");
+    var score = document.getElementById("score");
+    var scoreNSFW = document.getElementById("scoreNSFW")
+    var url = "https://infinite-sands-32812.herokuapp.com/?channelID=" + channelID + "&numWeeks=" + numweeks + "&clickbait=" + score + "porniness" + scoreNSFW ;
+    console.log(url)
+    XHR.open("GET", url, true);
+
+    // Set up our request
+    XHR.setRequestHeader("Content-type", "application/json");
+    XHR.onreadystatechange = function () {
+        if (XHR.readyState === 4 && XHR.status === 200) {
+            var json = JSON.parse(XHR.responseText);
+            console.log(json.views);
+            jQuery('#scoreViews').text("" + Math.round(json.views));
+        }
+    };
+    XHR.send();
+}
 function removeUpload() {
     $('.file-upload-input').replaceWith($('.file-upload-input').clone());
     $('.file-upload-content').hide();
