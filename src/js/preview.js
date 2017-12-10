@@ -123,7 +123,7 @@ function get_views(){
     console.log(score)
     console.log(scoreNSFW)
 
-    var url = "https://infinite-sands-32812.herokuapp.com/predictVid?channelID=" + channelID + "&numWeeks=" + numweeks + "&clickbait=" + parseFloat(score)/100 + "&porniness" + parseFloat(scoreNSFW)/100 ;
+    var url = "https://infinite-sands-32812.herokuapp.com/predictVid?channelID=" + channelID + "&numWeeks=" + numweeks + "&clickbait=" + parseFloat(score)/100 + "&porniness=" + parseFloat(scoreNSFW)/100 ;
     console.log(url)
     XHR.open("GET", url, true);
 
